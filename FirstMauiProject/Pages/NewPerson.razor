@@ -1,0 +1,29 @@
+﻿@page "/person/new"
+
+<h3>NewPerson</h3>
+@if (loaded)
+{
+    <h4>Loaded</h4>
+}
+else
+{
+    <div class="spinner"></div>
+}
+@code {
+    protected bool loaded = false;
+    EditContext editContext;
+    protected override Task OnInitializedAsync()
+    {
+        return base.OnInitializedAsync();
+    }
+    protected override void OnAfterRender(bool firstRender)
+    {
+        LoadEmployees();
+        base.OnAfterRender(firstRender);
+    }
+    protected void LoadEmployees()
+    {
+        //System.Threading.Thread.Sleep(2000);
+        loaded = true;
+    }
+}
